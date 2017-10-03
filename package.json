@@ -1,0 +1,62 @@
+{
+  "name": "generator-create-react-native",
+  "version": "1.0.0",
+  "description": "A teeny tiny, somewhat opinionated, generator for React Native projects",
+  "homepage": "https://github.com/katallaxie/generator-create-react-native",
+  "bugs": {
+    "url": "https://github.com/katallaxie/generator-create-react-native/issues"
+  },
+  "author": {
+    "name": "Sebastian Döll",
+    "email": "sebastian@katallaxie.me"
+  },
+  "contributors": [],
+  "files": [
+    "app",
+    "templates"
+  ],
+  "main": "app/index",
+  "keywords": [
+    "yeoman-generator",
+    "generator",
+    "react-native",
+    "react"
+  ],
+  "dependencies": {
+    "underscore.string": "^3.3.4",
+    "yeoman-generator": "^2.0.0",
+    "yosay": "^2.0.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-eslint": "^8.0.0",
+    "babel-jest": "^21.0.2",
+    "babel-preset-env": "^1.1.4",
+    "babel-preset-node": "^5.1.1",
+    "del": "^3.0.0",
+    "eslint": "^4.6.1",
+    "jest": "^21.0.2",
+    "jest-cli": "^21.0.2",
+    "yeoman-test": "^1.6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/katallaxie/generator-create-react-native.git"
+  },
+  "scripts": {
+    "babel": "babel",
+    "build": "babel src -d app",
+    "watch": "babel --watch src -d app",
+    "prepublish": "npm run build",
+    "test": "eslint 'src/**/*.js' && jest __test__",
+    "update": "git pull --recurse-submodules"
+  },
+  "jest": {
+    "verbose": true
+  },
+  "engines": {
+    "node": ">=6.9.1",
+    "npm": ">=3"
+  },
+  "license": "MIT"
+}
