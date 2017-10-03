@@ -4,6 +4,8 @@
 
 # A Yeoman React Native Generator
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/katallaxie/generator-create-react-native.svg)](https://greenkeeper.io/)
+
 > I am somewhat sorry, because I know there is an other excellent project to get you start [create-react-native-app](https://github.com/react-community/create-react-native-app)
 
 ## Getting Started
