@@ -25,7 +25,7 @@ npm i -g generator-create-react-native
 Have fun.
 
 ```
-yo create-react-native
+mkdir my-new-app && cd $_ && yo create-react-native
 ```
 
 ## Development
