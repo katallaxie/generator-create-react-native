@@ -10,4 +10,17 @@ export const deps = [
     'jest-expo'
 ];
 
+export const devDeps = [
+    'babel-eslint',
+    'babel-plugin-module-alias',
+    'eslint',
+    'eslint-config-prettier',
+    'eslint-plugin-prettier',
+    'eslint-plugin-react',
+    'eslint-plugin-import',
+    'jest-expo',
+    'prettier',
+    'prettier-eslint'
+];
+
 export const sdkVersion = '21.0.0';

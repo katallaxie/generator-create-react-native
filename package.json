@@ -47,7 +47,7 @@
     "babel": "babel",
     "build": "babel src -d app",
     "watch": "babel --watch src -d app",
-    "prepublish": "npm run build",
+    "prepare": "npm run build",
     "test": "eslint 'src/**/*.js' && jest __test__",
     "update": "git pull --recurse-submodules"
   },

@@ -4,12 +4,16 @@ import proc from 'process';
 import path from 'path';
 import fs from 'fs';
 import Generator from 'yeoman-generator';
-import { camelize } from 'underscore.string';
+import {
+  camelize,
+  dasherize
+} from 'underscore.string';
 
 // load configs
 import templates from './templates';
 import {
   deps,
+  devDeps,
   sdkVersion
 } from './config';
 
@@ -24,7 +28,7 @@ class ReactNativeGenerator extends Generator {
 
     // this allows to directly pass in the name of the application
     this.argument('appname', {
-      desc: `The name of the application (e.g. 'hello-world')`,
+      desc: `The name of the application (e.g. 'Hello World')`,
       type: String,
       optional: true,
       default: path.basename(proc.cwd()),
@@ -88,7 +92,7 @@ class ReactNativeGenerator extends Generator {
 
     // write package.json
     const packageJson = {
-      name: this.appName,
+      name: dasherize(this.appName),
       version: '0.1.0',
       private: true,
       repository: {
@@ -136,7 +140,8 @@ class ReactNativeGenerator extends Generator {
     
     // install deps
     if (this.install) {
-      this.npmInstall(deps, { loglevel: 'silent', progress: true } );
+      this.npmInstall(deps, { 'save': true, loglevel: 'silent', progress: true } );
+      this.npmInstall(devDeps, { 'save-dev': true, loglevel: 'silent', progress: true } );
     }
 
    }
