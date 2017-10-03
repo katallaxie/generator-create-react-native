@@ -1,10 +1,10 @@
 [![Taylor Swift](https://img.shields.io/badge/secured%20by-taylor%20swift-brightgreen.svg)](https://twitter.com/SwiftOnSecurity)
 [![Volkswagen](https://auchenberg.github.io/volkswagen/volkswargen_ci.svg?v=1)](https://github.com/auchenberg/volkswagen)
+[![Build Status](https://travis-ci.org/katallaxie/generator-create-react-native.svg?branch=master)](https://travis-ci.org/katallaxie/generator-create-react-native)
+[![Greenkeeper badge](https://badges.greenkeeper.io/katallaxie/generator-react-native-preboot.svg)](https://greenkeeper.io/)
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 
 # A Yeoman React Native Generator
-
-[![Greenkeeper badge](https://badges.greenkeeper.io/katallaxie/generator-create-react-native.svg)](https://greenkeeper.io/)
 
 > I am somewhat sorry, because I know there is an other excellent project to get you start [create-react-native-app](https://github.com/react-community/create-react-native-app)
 
