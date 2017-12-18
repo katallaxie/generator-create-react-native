@@ -35,7 +35,7 @@
     "babel-preset-node": "^5.1.1",
     "del": "^3.0.0",
     "eslint": "^4.6.1",
-    "jest": "^21.0.2",
+    "jest": "^22.0.0",
     "jest-cli": "^21.0.2",
     "yeoman-test": "^1.6.0"
   },
