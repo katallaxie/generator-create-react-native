@@ -1,15 +1,17 @@
 language: node_js
 node_js:
-  - 6
-  - 7
-  - "node"
+- 6
+- 7
+- node
 before_install:
 - npm install -g npm@5
 - npm install -g greenkeeper-lockfile@1
 before_script: greenkeeper-lockfile-update
 after_script: greenkeeper-lockfile-upload
 script:
-  - npm run build
-  - npm run test
-
+- npm run build
+- npm run test
 sudo: required
+env:
+  global:
+    secure: Iy4utvTiOMFOFQ81tB8GVm1pTimZGOS1/p1tLvQNM1imb95BEmK5pwQCjxXZxGYmNUNhresvZnURpGmARueAIVHP6Iwu1a2L9K5d0YfpQYDgLbFvyjHRNQP4y7S6pmmtVCdOyPzgN37s3yUy0bxlTmWLHcy8WMSGp4S3fxSGNUnYmn8/sEusAK92RjCYAm1fdIVxSAisxkQaUC4MD+qOytfNXXWmVtpiJQ31toAjNCfMjYFq4nHDFVQ1ML6WVsD7qRiRCxnWBWrUCaf5puwQfTI8PrktQ888mgY/foiI/1Oe2tbS2Px6D88WSfBCdI7ynwEFdsRlQwIARQuRPbyFKploub1DjcFcBb6sL1DXo/uBoXMnQoXoe29Gy3TFZ8wMfnw0MZkGU/nGPO6OciqybBfasMsAA/oGrmjMjFNcJ9xLyPTWrB7d5PQhiKPWSxvUjScQPmtLcpuM+rB3bFeilT8qEDFFTAJMxeQ0WxwvS7auxTChX5QjCV/shw9sv60/qGm/DwLzeminMNL4w2NvXo9CDF1hCnoOiOl/6VfQDLWZclDkH2kTHPAWu0b/b+xje7pVTjNTFIOQhMN79tVcJNkRfl9PWLEZ4IrMjTlUhDz+ADW7eN8pJq60lXXRtZ7JP1/iijZUGdsswXENML4G0X1lbq+sDok0LdMosp7BvI4=
