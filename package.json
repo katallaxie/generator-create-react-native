@@ -24,18 +24,18 @@
   ],
   "dependencies": {
     "underscore.string": "^3.3.4",
-    "yeoman-generator": "^2.0.0",
+    "yeoman-generator": "^2.0.2",
     "yosay": "^2.0.1"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
-    "babel-eslint": "^8.0.0",
+    "babel-eslint": "^8.2.1",
     "babel-jest": "^21.0.2",
-    "babel-preset-env": "^1.1.4",
+    "babel-preset-env": "^1.6.1",
     "babel-preset-node": "^5.1.1",
     "del": "^3.0.0",
-    "eslint": "^4.6.1",
-    "jest": "^22.0.0",
+    "eslint": "^4.15.0",
+    "jest": "^22.1.3",
     "jest-cli": "^21.0.2",
     "yeoman-test": "^1.6.0"
   },
