@@ -8,13 +8,22 @@
 
 > I am somewhat sorry, because I know there is an other excellent project to get you start [create-react-native-app](https://github.com/react-community/create-react-native-app)
 
+The generator uses the [Expo SDK](https://github.com/expo/expo-sdk) to bootstrap the application. Installing `watchman` is recommended, you can do so by `brew install watchman`.
+
+Or you should do
+
+```bash
+sudo sysctl -w kern.maxfiles=5242880
+sudo sysctl -w kern.maxfilesperproc=524288
+```
+
 ## Getting Started
 
 > We highly recommand to use `nvm` ([NVM](https://github.com/creationix/nvm)) to manage your Node versions, and to use the most recent versions
 
 First, you have to install `yo`, as to use any [Yeoman](http://yeoman.io/) Generator. 
 
-```
+```bash
 npm i -g yo
 ```
 
@@ -27,7 +36,11 @@ npm i -g generator-create-react-native
 Have fun.
 
 ```
+# use yeoman
 mkdir my-new-app && cd $_ && yo create-react-native
+
+# use cli
+create-react-native
 ```
 
 ## Development

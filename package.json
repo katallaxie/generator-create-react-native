@@ -6,6 +6,9 @@
   "bugs": {
     "url": "https://github.com/katallaxie/generator-create-react-native/issues"
   },
+  "bin": {
+    "create-react-native": "./bin/create-react-native"
+  },
   "author": {
     "name": "Sebastian Döll",
     "email": "sebastian@katallaxie.me"
@@ -13,6 +16,7 @@
   "contributors": [],
   "files": [
     "app",
+    "bin",
     "templates"
   ],
   "main": "app/index",
@@ -24,19 +28,23 @@
   ],
   "dependencies": {
     "underscore.string": "^3.3.4",
-    "yeoman-generator": "^2.0.2",
-    "yosay": "^2.0.1"
+    "yeoman-generator": "^2.0.3",
+    "yosay": "^2.0.2"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
-    "babel-eslint": "^8.2.1",
-    "babel-jest": "^22.2.0",
+    "babel-eslint": "^8.2.2",
+    "babel-jest": "^22.4.3",
     "babel-preset-env": "^1.6.1",
     "babel-preset-node": "^5.1.1",
     "del": "^3.0.0",
-    "eslint": "^4.15.0",
-    "jest": "^22.1.3",
-    "jest-cli": "^22.1.4",
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "jest": "^22.4.3",
+    "jest-cli": "^22.4.3",
+    "prettier": "^1.11.1",
+    "prettier-eslint": "^8.8.1",
     "yeoman-test": "^1.6.0"
   },
   "repository": {
@@ -45,8 +53,8 @@
   },
   "scripts": {
     "babel": "babel",
-    "build": "babel src -d app",
-    "watch": "babel --watch src -d app",
+    "build": "babel src -d generators",
+    "watch": "babel --watch src -d generators",
     "prepare": "npm run build",
     "test": "eslint 'src/**/*.js' && jest __test__",
     "update": "git pull --recurse-submodules"

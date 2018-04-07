@@ -43,4 +43,4 @@ export default [
     from: '_App.test.js',
     to: 'App.test.js'
   }
-];
+]

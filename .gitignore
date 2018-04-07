@@ -21,7 +21,7 @@
 *.log
 
 # Dist
-app
+generators
 
 # Tools
 node_modules
