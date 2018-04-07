@@ -23,7 +23,7 @@ class ReactNativeGenerator extends Generator {
       desc: `The name of the application (e.g. 'Hello World')`,
       type: String,
       optional: true,
-      default: path.basename(proc.cwd())
+      default: path.basename(cwd)
     })
 
     this.appName = this.options.appname
@@ -34,11 +34,11 @@ class ReactNativeGenerator extends Generator {
     // setup
     function setup() {
       // do no create the path
-      if (path.basename(proc.cwd()) === this.appName) {
+      if (path.basename(cwd) === this.appName) {
         return
       }
 
-      const destinationPath = path.resolve(proc.cwd(), this.appName)
+      const destinationPath = path.resolve(cwd, this.appName)
       // try to create
       try {
         fs.mkdirSync(destinationPath)
@@ -135,7 +135,7 @@ class ReactNativeGenerator extends Generator {
       }
     }
     fs.writeFileSync(
-      path.resolve(cwd, 'package.json'),
+      path.resolve(this.destinationRoot(), 'package.json'),
       JSON.stringify(packageJson, null, 2)
     )
 
@@ -149,7 +149,7 @@ class ReactNativeGenerator extends Generator {
       }
     }
     fs.writeFileSync(
-      path.resolve(cwd, 'app.json'),
+      path.resolve(this.destinationRoot(), 'app.json'),
       JSON.stringify(appJson, null, 2)
     )
 
@@ -165,18 +165,29 @@ class ReactNativeGenerator extends Generator {
 
   // install
   install() {
-    // install deps
     if (this.install) {
-      this.npmInstall(deps, {
-        save: true,
-        loglevel: 'silent',
-        progress: true
-      })
-      this.npmInstall(devDeps, {
-        'save-dev': true,
-        loglevel: 'silent',
-        progress: true
-      })
+      this.npmInstall(
+        deps,
+        {
+          save: true,
+          loglevel: 'silent',
+          progress: true
+        },
+        {
+          cwd: this.destinationRoot()
+        }
+      )
+      this.npmInstall(
+        devDeps,
+        {
+          'save-dev': true,
+          loglevel: 'silent',
+          progress: true
+        },
+        {
+          cwd: this.destinationRoot()
+        }
+      )
     }
   }
 }
