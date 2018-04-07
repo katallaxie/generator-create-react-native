@@ -1,6 +1,6 @@
 {
   "name": "generator-create-react-native",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A teeny tiny, somewhat opinionated, generator for React Native projects",
   "homepage": "https://github.com/katallaxie/generator-create-react-native",
   "bugs": {
