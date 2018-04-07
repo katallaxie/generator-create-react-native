@@ -15,8 +15,8 @@
   },
   "contributors": [],
   "files": [
-    "app",
     "bin",
+    "generators",
     "templates"
   ],
   "main": "app/index",

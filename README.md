@@ -21,26 +21,20 @@ sudo sysctl -w kern.maxfilesperproc=524288
 
 > We highly recommand to use `nvm` ([NVM](https://github.com/creationix/nvm)) to manage your Node versions, and to use the most recent versions
 
-First, you have to install `yo`, as to use any [Yeoman](http://yeoman.io/) Generator. 
+> You can install `yo`, as you do to use any [Yeoman](http://yeoman.io/) Generator. 
 
 ```bash
-npm i -g yo
-```
-
-You install the generator by running the following command.
-
-```
 npm i -g generator-create-react-native
 ```
 
 Have fun.
 
 ```
-# use yeoman
-mkdir my-new-app && cd $_ && yo create-react-native
+# create directory
+mkdir my-new-app && cd $_ && create-react-native
 
-# use cli
-create-react-native
+# or let it do for your
+create-react-native my-new-app
 ```
 
 ## Development
