@@ -31,12 +31,33 @@ class ReactNativeGenerator extends Generator {
 
   // we use a property, because this is executed first
   get initializing() {
+    // setup
+    function setup() {
+      // do no create the path
+      if (path.basename(proc.cwd()) === this.appName) {
+        return
+      }
+
+      const destinationPath = path.resolve(proc.cwd(), this.appName)
+      // try to create
+      try {
+        fs.mkdirSync(destinationPath)
+      } catch (err) {
+        if (err.code !== 'EEXIST') throw err
+      }
+
+      // set to the new destination
+      this.destinationRoot(destinationPath)
+    }
+
+    // say hello
     function hello() {
       // say yo, to any new gopher
       this.log(yosay(`Greetings! Let's get your project started.`))
     }
 
     return {
+      setup,
       hello
     }
   }
@@ -45,18 +66,6 @@ class ReactNativeGenerator extends Generator {
   paths() {
     // set new source path
     this.sourceRoot(path.resolve(__dirname, '../../templates/'))
-
-    // do no create the path
-    if (path.basename(proc.cwd()) === this.appName) {
-      return
-    }
-
-    // try to create
-    try {
-      fs.mkdirSync(path.resolve(proc.cwd(), this.appName))
-    } catch (err) {
-      if (err.code !== 'EEXIST') throw err
-    }
   }
 
   // prompting the user for inputs
