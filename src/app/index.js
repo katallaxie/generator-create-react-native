@@ -165,30 +165,32 @@ class ReactNativeGenerator extends Generator {
 
   // install
   install() {
-    if (this.install) {
-      this.npmInstall(
-        deps,
-        {
-          save: true,
-          loglevel: 'silent',
-          progress: true
-        },
-        {
-          cwd: this.destinationRoot()
-        }
-      )
-      this.npmInstall(
-        devDeps,
-        {
-          'save-dev': true,
-          loglevel: 'silent',
-          progress: true
-        },
-        {
-          cwd: this.destinationRoot()
-        }
-      )
+    if (!this.install) {
+      return
     }
+
+    this.npmInstall(
+      deps,
+      {
+        save: true,
+        loglevel: 'silent',
+        progress: true
+      },
+      {
+        cwd: this.destinationRoot()
+      }
+    )
+    this.npmInstall(
+      devDeps,
+      {
+        'save-dev': true,
+        loglevel: 'silent',
+        progress: true
+      },
+      {
+        cwd: this.destinationRoot()
+      }
+    )
   }
 }
 
