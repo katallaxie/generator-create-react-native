@@ -170,7 +170,7 @@ class ReactNativeGenerator extends Generator {
     }
 
     this.npmInstall(
-      deps,
+      deps[this.sdkVersion],
       {
         save: true,
         loglevel: 'silent',
