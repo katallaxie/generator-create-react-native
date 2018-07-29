@@ -8,7 +8,7 @@ import { camelize, dasherize } from 'underscore.string'
 
 // load configs
 import templates from './templates'
-import { deps, devDeps, sdkVersion } from './config'
+import { sdk, deps, devDeps } from './config'
 
 // cwd
 const cwd = proc.cwd()
@@ -43,7 +43,9 @@ class ReactNativeGenerator extends Generator {
       try {
         fs.mkdirSync(destinationPath)
       } catch (err) {
-        if (err.code !== 'EEXIST') throw err
+        if (err.code !== 'EEXIST') {
+          this.log.error(err)
+        }
       }
 
       // set to the new destination
@@ -85,23 +87,15 @@ class ReactNativeGenerator extends Generator {
         type: 'list',
         name: 'sdkVersion',
         message: 'Which Expo SDK would like to use?',
-        choices: sdkVersion,
+        choices: Object.keys(sdk),
         store: true,
         pageSize: 5
-      },
-      {
-        type: 'confirm',
-        name: 'install',
-        message: 'Would you like to install the dependencies?',
-        default: true,
-        store: true
       }
     ]
 
-    this.prompt(prompts).then(({ app, install, sdkVersion }) => {
+    this.prompt(prompts).then(({ app, sdkVersion }) => {
       this.sdkVersion = sdkVersion
       this.appName = app
-      this.install = install
       done()
     })
   }
@@ -165,12 +159,8 @@ class ReactNativeGenerator extends Generator {
 
   // install
   install() {
-    if (!this.install) {
-      return
-    }
-
     this.npmInstall(
-      deps[this.sdkVersion],
+      deps,
       {
         save: true,
         loglevel: 'silent',
@@ -180,10 +170,23 @@ class ReactNativeGenerator extends Generator {
         cwd: this.destinationRoot()
       }
     )
+
     this.npmInstall(
       devDeps,
       {
         'save-dev': true,
+        loglevel: 'silent',
+        progress: true
+      },
+      {
+        cwd: this.destinationRoot()
+      }
+    )
+
+    this.npmInstall(
+      sdk[this.sdkVersion],
+      {
+        save: true,
         loglevel: 'silent',
         progress: true
       },

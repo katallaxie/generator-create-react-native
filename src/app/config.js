@@ -1,15 +1,15 @@
-export const deps = {
-  '26.0.0': [
-    '@expo/vector-icons',
-    'expo',
-    'react-native-scripts',
-    'react-native@expo/react-native#sdk-26.0.0',
-    'react-test-renderer',
-    'react@16.3.0-alpha.2',
-    'jest',
-    'jest-cli',
-    'jest-expo'
-  ]
+export const deps = [
+  '@expo/vector-icons',
+  'expo',
+  'react-native-scripts',
+  'react-test-renderer',
+  'jest',
+  'jest-cli',
+  'jest-expo'
+]
+
+export const sdk = {
+  '29.0.0': 'expo/react-native#sdk-29.0.0'
 }
 
 export const devDeps = [
@@ -24,5 +24,3 @@ export const devDeps = [
   'prettier',
   'prettier-eslint'
 ]
-
-export const sdkVersion = ['26.0.0']

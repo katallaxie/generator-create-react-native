@@ -1,6 +1,6 @@
 {
   "name": "generator-create-react-native",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "A teeny tiny, somewhat opinionated, generator for React Native projects",
   "homepage": "https://github.com/katallaxie/generator-create-react-native",
   "bugs": {
@@ -28,23 +28,24 @@
   ],
   "dependencies": {
     "underscore.string": "^3.3.4",
-    "yeoman-generator": "^3.1.1",
+    "yeoman-generator": "^3.1.0",
     "yosay": "^2.0.2"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
-    "babel-eslint": "^8.2.2",
-    "babel-jest": "^22.4.3",
-    "babel-preset-env": "^1.6.1",
+    "babel-eslint": "8.2.6",
+    "babel-jest": "^23.4.2",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-node": "^5.1.1",
+    "bluebird": "^3.5.1",
     "del": "^3.0.0",
-    "eslint": "^4.19.1",
+    "eslint": "^5.2.0",
     "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-prettier": "^2.6.0",
-    "jest": "^22.4.3",
-    "jest-cli": "^23.0.0",
-    "prettier": "^1.11.1",
-    "prettier-eslint": "^8.8.1",
+    "eslint-plugin-prettier": "^2.6.2",
+    "jest": "^23.4.2",
+    "jest-cli": "^23.4.2",
+    "prettier": "^1.13.7",
+    "prettier-eslint": "^8.8.2",
     "yeoman-test": "^1.6.0"
   },
   "repository": {
@@ -60,7 +61,8 @@
     "update": "git pull --recurse-submodules"
   },
   "jest": {
-    "verbose": true
+    "verbose": true,
+    "testEnvironment": "node"
   },
   "engines": {
     "node": ">=6.9.1",
