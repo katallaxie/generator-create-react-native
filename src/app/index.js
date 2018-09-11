@@ -8,7 +8,7 @@ import { camelize, dasherize } from 'underscore.string'
 
 // load configs
 import templates from './templates'
-import { sdk, deps, devDeps } from './config'
+import { pkg } from './config'
 
 // cwd
 const cwd = proc.cwd()
@@ -87,7 +87,7 @@ class ReactNativeGenerator extends Generator {
         type: 'list',
         name: 'sdkVersion',
         message: 'Which Expo SDK would like to use?',
-        choices: Object.keys(sdk),
+        choices: Object.keys(pkg),
         store: true,
         pageSize: 5
       }
@@ -108,29 +108,35 @@ class ReactNativeGenerator extends Generator {
   // writing our files
   writing() {
     // write package.json
-    const packageJson = {
-      name: dasherize(this.appName),
-      version: '0.1.0',
-      private: true,
-      repository: {
-        type: 'git',
-        url: this.repoUrl
+    const pkgJson = Object.assign(
+      {
+        name: dasherize(this.appName),
+        version: '0.1.0',
+        private: true,
+        repository: {
+          type: 'git',
+          url: this.repoUrl
+        },
+        main: './node_modules/react-native-scripts/build/bin/crna-entry.js',
+        scripts: {
+          start: 'react-native-scripts start',
+          eject: 'react-native-scripts eject',
+          android: 'react-native-scripts android',
+          ios: 'react-native-scripts ios',
+          test: 'node node_modules/jest/bin/jest.js --watchAll'
+        },
+        jest: {
+          preset: 'jest-expo'
+        }
       },
-      main: './node_modules/react-native-scripts/build/bin/crna-entry.js',
-      scripts: {
-        start: 'react-native-scripts start',
-        eject: 'react-native-scripts eject',
-        android: 'react-native-scripts android',
-        ios: 'react-native-scripts ios',
-        test: 'node node_modules/jest/bin/jest.js --watchAll'
-      },
-      jest: {
-        preset: 'jest-expo'
+      {
+        ...pkg[this.sdkVersion]
       }
-    }
+    )
+
     fs.writeFileSync(
       path.resolve(this.destinationRoot(), 'package.json'),
-      JSON.stringify(packageJson, null, 2)
+      JSON.stringify(pkgJson, null, 2)
     )
 
     // write app.json
@@ -159,41 +165,7 @@ class ReactNativeGenerator extends Generator {
 
   // install
   install() {
-    this.npmInstall(
-      deps,
-      {
-        save: true,
-        loglevel: 'silent',
-        progress: true
-      },
-      {
-        cwd: this.destinationRoot()
-      }
-    )
-
-    this.npmInstall(
-      devDeps,
-      {
-        'save-dev': true,
-        loglevel: 'silent',
-        progress: true
-      },
-      {
-        cwd: this.destinationRoot()
-      }
-    )
-
-    this.npmInstall(
-      sdk[this.sdkVersion],
-      {
-        save: true,
-        loglevel: 'silent',
-        progress: true
-      },
-      {
-        cwd: this.destinationRoot()
-      }
-    )
+    this.npmInstall()
   }
 }
 
